@@ -24,11 +24,12 @@ class DownloadService
   def download
     timestamp = Time.current
 
-    if user.last_synced_at
-      fetch_read_notifications
-    else
-      new_user_fetch
-    end
+    #if user.last_synced_at
+    #  fetch_read_notifications
+    #else
+    #  new_user_fetch
+    #end
+    new_user_fetch
     fetch_unread_notifications
     user.update_column(:last_synced_at, timestamp)
   end
